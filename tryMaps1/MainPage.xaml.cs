@@ -46,7 +46,18 @@ namespace tryMaps1
             var dialog = new MessageDialog("Latitute: " + gp.Coordinate.Latitude.ToString() + ", Longitute: " + gp.Coordinate.Longitude.ToString());
             await dialog.ShowAsync();
             MyMap.Center = new Location(gp.Coordinate.Latitude, gp.Coordinate.Longitude);
+            ClearMap();
+            Pushpin pin = new Pushpin();
+            pin.Text = "#1";
+            pin.Background = new Windows.UI.Xaml.Media.SolidColorBrush(Windows.UI.Colors.Red);
+            MapLayer.SetPosition(pin, MyMap.Center);
+            DataLayer.Children.Add(pin); 
             
+        }
+
+        private void ClearMap()
+        {
+            DataLayer.Children.Clear();
         }
         private void AddPushpin_Tapped(object sender, TappedRoutedEventArgs e)
         {
