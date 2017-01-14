@@ -9,7 +9,7 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <m:Map Name="MyMap" Credentials="sn7DP77qsOS0Mi9So3VQ~O73uEH6wpQD4TKXx-HKLoQ~AmfbbUBiMm7EFcVYbPriZmzJNagcv7TPkUpe-dZCypxItHA4IdIxcGNM2BOEINM_">
+        <m:Map Name="MyMap" MapType="Aerial" ZoomLevel="10" Credentials="sn7DP77qsOS0Mi9So3VQ~O73uEH6wpQD4TKXx-HKLoQ~AmfbbUBiMm7EFcVYbPriZmzJNagcv7TPkUpe-dZCypxItHA4IdIxcGNM2BOEINM_">
             <m:Map.Children>
                 <m:MapLayer Name="DataLayer"/>
                 <m:MapLayer Name="InfoboxLayer" Visibility="Collapsed"/>

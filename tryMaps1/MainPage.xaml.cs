@@ -16,6 +16,7 @@ using Windows.Devices.Geolocation;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Popups;
+using Bing.Maps;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -44,6 +45,7 @@ namespace tryMaps1
             Geoposition gp = await gl.GetGeopositionAsync();
             var dialog = new MessageDialog("Latitute: " + gp.Coordinate.Latitude.ToString() + ", Longitute: " + gp.Coordinate.Longitude.ToString());
             await dialog.ShowAsync();
+            MyMap.Center = new Location(gp.Coordinate.Latitude, gp.Coordinate.Longitude);
             
         }
         private void AddPushpin_Tapped(object sender, TappedRoutedEventArgs e)
