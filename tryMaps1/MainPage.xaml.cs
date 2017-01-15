@@ -50,11 +50,25 @@ namespace tryMaps1
             Pushpin pin = new Pushpin();
             pin.Text = "#1";
             pin.Background = new Windows.UI.Xaml.Media.SolidColorBrush(Windows.UI.Colors.Red);
+            pin.Tag = "Varsha's Place";
             MapLayer.SetPosition(pin, MyMap.Center);
+            pin.Tapped += OpenInfobox; 
             DataLayer.Children.Add(pin); 
             
         }
 
+        private void OpenInfobox(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            Pushpin pin = sender as Pushpin;
+            Infobox.DataContext = pin.Tag;
+            InfoboxLayer.Visibility = Visibility.Visible;
+            MapLayer.SetPosition(Infobox, MapLayer.GetPosition(pin)); 
+        }
+
+        private void CloseInfobox_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        { 
+            InfoboxLayer.Visibility = Visibility.Collapsed;
+        }  
         private void ClearMap()
         {
             DataLayer.Children.Clear();
